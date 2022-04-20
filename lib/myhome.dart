@@ -8,7 +8,6 @@ import 'buildPayments.dart';
 import 'main.dart';
 import 'navbar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -54,7 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   carouselController: controller1,
                   itemCount: 2,
                   itemBuilder: (context, index, realIndex) {
-                    showtoast();
                     if (index == 0) {
                       return buildPage(context, Colors.blue.withOpacity(0.3),
                           "Prepaid", activeIndex);
@@ -84,14 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-showtoast() => Fluttertoast.showToast(
-    msg: "This is Center Short Toast",
-    toastLength: Toast.LENGTH_SHORT,
-    gravity: ToastGravity.CENTER,
-    timeInSecForIosWeb: 1,
-    backgroundColor: Colors.grey,
-    textColor: Colors.red,
-    fontSize: 16.0);
             
 
 // bool value = true;

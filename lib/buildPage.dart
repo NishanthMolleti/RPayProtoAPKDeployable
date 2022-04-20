@@ -18,24 +18,25 @@ Widget buildPage(
     Container(
       margin: EdgeInsets.symmetric(horizontal: 15.w),
       child: Column(children: [
-        // cards 
+        // cards
         GestureDetector(
             onTap: () {
               showModalBottomSheet(
                   isScrollControlled: true,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(35)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(35.r),
+                        bottom: Radius.circular(35.r)),
                   ),
                   context: context,
                   builder: (context) => bottomSheet(context));
             },
             child: buildCard(cardType, c, context)),
-        //balance 
+        //balance
         GestureDetector(
             onTap: () {
               showModalBottomSheet(
-                  // isScrollControlled: true,
+                  isScrollControlled: true,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
                         top: Radius.circular(35.r),

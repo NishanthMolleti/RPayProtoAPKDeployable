@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:test/utils/toast.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget bottomSheet(context) => Padding(
       padding: EdgeInsets.all(12.0),
@@ -27,16 +29,9 @@ Widget bottomSheet(context) => Padding(
         ),
         GestureDetector(
           onTap: () {
-            print("tapped");
-            Clipboard.setData(ClipboardData(text: 'email')).then((_) {
-              Fluttertoast.showToast(
-                  msg: "This is Center Short Toast",
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.CENTER,
-                  timeInSecForIosWeb: 1,
-                  backgroundColor: Colors.grey,
-                  textColor: Colors.red,
-                  fontSize: 16.0);
+            Clipboard.setData(ClipboardData(text: '1234567890123456'))
+                .then((_) {
+              showToast("Number is copied to clipboard");
             });
           },
           child: Container(
@@ -59,92 +54,132 @@ Widget bottomSheet(context) => Padding(
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        Container(
-          child: Row(
-            children: const [
-              Expanded(
-                  child: Text(
-                "Expire on",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18),
-              )),
-              Expanded(
-                  child: Text(
-                "12/24",
-                textAlign: TextAlign.right,
-                style: TextStyle(fontSize: 18, color: Colors.blue),
-              )),
-            ],
+        GestureDetector(
+          onTap: () {
+            Clipboard.setData(ClipboardData(text: '12/24')).then((_) {
+              showToast("Number is copied to clipboard");
+            });
+          },
+          child: Container(
+            child: Row(
+              children: const [
+                Expanded(
+                    child: Text(
+                  "Expire on",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 18),
+                )),
+                Expanded(
+                    child: Text(
+                  "12/24",
+                  textAlign: TextAlign.right,
+                  style: TextStyle(fontSize: 18, color: Colors.blue),
+                )),
+              ],
+            ),
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        Container(
-          child: Row(
-            children: const [
-              Expanded(
-                  child: Text(
-                "Security code",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18),
-              )),
-              Expanded(
-                  child: Text(
-                "543",
-                textAlign: TextAlign.right,
-                style: TextStyle(fontSize: 18, color: Colors.blue),
-              )),
-            ],
+        GestureDetector(
+          onTap: () {
+            Clipboard.setData(ClipboardData(text: '543')).then((_) {
+              showToast("Number is copied to clipboard");
+            });
+          },
+          child: Container(
+            child: Row(
+              children: const [
+                Expanded(
+                    child: Text(
+                  "Security code",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 18),
+                )),
+                Expanded(
+                    child: Text(
+                  "543",
+                  textAlign: TextAlign.right,
+                  style: TextStyle(fontSize: 18, color: Colors.blue),
+                )),
+              ],
+            ),
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        Container(
-          child: Row(
-            children: const [
-              Expanded(
-                  child: Text(
-                "Card holder",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18),
-              )),
-              Expanded(
-                  child: Text(
-                "Saily Anderson",
-                textAlign: TextAlign.right,
-                style: TextStyle(fontSize: 18, color: Colors.blue),
-              )),
-            ],
+        GestureDetector(
+          onTap: () {
+            Clipboard.setData(ClipboardData(text: 'Saily Anderson')).then((_) {
+              showToast("Number is copied to clipboard");
+            });
+          },
+          child: Container(
+            child: Row(
+              children: const [
+                Expanded(
+                    child: Text(
+                  "Card holder",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 18),
+                )),
+                Expanded(
+                    child: Text(
+                  "Saily Anderson",
+                  textAlign: TextAlign.right,
+                  style: TextStyle(fontSize: 18, color: Colors.blue),
+                )),
+              ],
+            ),
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        Container(
-          child: Row(
-            children: const [
-              Expanded(
-                  child: Text(
-                "Enabled",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18),
-              )),
-              Expanded(
-                  child: Text(
-                "Saily Anderson",
-                textAlign: TextAlign.right,
-                style: TextStyle(fontSize: 18, color: Colors.blue),
-              )),
-            ],
+        GestureDetector(
+          child: Container(
+            child: Row(
+              children: [
+                const Expanded(
+                    child: Text(
+                  "Enabled",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 18),
+                )),
+                Container(
+                    width: 52.w,
+                    height: 32.h,
+                    // color: Colors.blue,
+                    child: buildSwitch()),
+              ],
+            ),
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        const SizedBox(
-          height: 30,
+         SizedBox(
+          height: 30.h,
         ),
         Container(
-          margin: const EdgeInsets.only(bottom: 10),
-          child: const Text(
+          margin:  EdgeInsets.only(bottom: 10.h),
+          child:  Text(
             "Renew number",
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.blue, fontSize: 18),
+            style: TextStyle(color: Colors.blue, fontSize: 18.sp),
           ),
         ),
       ]),
+    );
+
+bool value = true;
+Widget buildSwitch() => Transform.scale(
+      scale: 1.3,
+      child: Switch.adaptive(
+        thumbColor: MaterialStateProperty.all(Colors.white),
+        trackColor: MaterialStateProperty.all(Colors.green),
+        // activeColor: Colors.blueAccent,
+        // activeTrackColor: Colors.blue.withOpacity(0.4),
+        // inactiveThumbColor: Colors.orange,
+        // inactiveTrackColor: Colors.black87,
+        splashRadius: 30.r,
+        value: value,
+        onChanged: (v) {
+          value = v;
+        },
+      ),
     );

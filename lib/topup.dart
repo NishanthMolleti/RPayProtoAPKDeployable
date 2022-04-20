@@ -1,39 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:test/topUpPage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget topUp(context) => Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding:  EdgeInsets.symmetric(vertical:10.0.h,horizontal: 10.0.w),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-        const SizedBox(
-          height: 25,
+         SizedBox(
+          height: 25.h,
         ),
         Container(
-          child: const Text(
+          child:  Text(
             "Top up your card",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
           ),
         ),
-        const SizedBox(
-          height: 40,
+         SizedBox(
+          height: 40.h,
         ),
         Container(
           child: Row(
-            children: const [
+            children:  [
               Icon(
                 Icons.payment,
                 color: Colors.black,
-                size: 24.0,
+                size: 24.0.sp,
                 semanticLabel: 'Text to announce in accessibility modes',
               ),
               SizedBox(
-                width: 25,
+                width: 25.w,
               ),
               Expanded(
                   child: Text(
                 "Credit/Debit  card",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, color: Colors.black),
+                style: TextStyle(fontSize: 18.sp, color: Colors.black),
               )),
             ],
           ),
@@ -42,14 +43,14 @@ Widget topUp(context) => Padding(
         Container(
           child: Row(
             children: [
-              const Icon(
+               Icon(
                 Icons.house,
                 color: Colors.black,
-                size: 24.0,
+                size: 24.0.sp,
                 semanticLabel: 'Text to announce in accessibility modes',
               ),
-              const SizedBox(
-                width: 25,
+               SizedBox(
+                width: 25.w,
               ),
               GestureDetector(
                 onTap: () {
@@ -59,11 +60,11 @@ Widget topUp(context) => Padding(
                         builder: (context) => const TopupScreen()),
                   );
                 },
-                child: const Expanded(
+                child:  Expanded(
                   child: Text(
                     "Bank",
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: TextStyle(fontSize: 18.sp, color: Colors.black),
                   ),
                 ),
               ),
@@ -73,21 +74,21 @@ Widget topUp(context) => Padding(
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
         Container(
           child: Row(
-            children: const [
+            children:  [
               Icon(
                 Icons.paypal,
                 color: Colors.black,
-                size: 24.0,
+                size: 24.0.sp,
                 semanticLabel: 'Text to announce in accessibility modes',
               ),
               SizedBox(
-                width: 25,
+                width: 25.w,
               ),
               Expanded(
                   child: Text(
                 "PayPal",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, color: Colors.black),
+                style: TextStyle(fontSize: 18.sp, color: Colors.black),
               )),
             ],
           ),
@@ -95,33 +96,33 @@ Widget topUp(context) => Padding(
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
         Container(
           child: Row(
-            children: const [
+            children:  [
               Icon(
                 Icons.add,
                 color: Colors.black,
-                size: 24.0,
+                size: 24.0.sp,
                 semanticLabel: 'Text to announce in accessibility modes',
               ),
               SizedBox(
-                width: 25,
+                width: 25.w,
               ),
               Expanded(
                   child: Text(
                 "Cash Back",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18, color: Colors.black),
+                style: TextStyle(fontSize: 18.sp, color: Colors.black),
               )),
               Text(
                 "\$87.35",
                 textAlign: TextAlign.right,
-                style: TextStyle(color: Colors.blue, fontSize: 18),
+                style: TextStyle(color: Colors.blue, fontSize: 18.sp),
               )
             ],
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        const SizedBox(
-          height: 100,
+         SizedBox(
+          height: 100.h,
         ),
       ]),
     );
