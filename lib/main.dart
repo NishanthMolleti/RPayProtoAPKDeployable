@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:test/loginScreen.dart';
+import 'package:test/splash.dart';
 import 'myhome.dart';
 import 'package:flutter/services.dart';
 
+String receiverUid = "";
+String receiverName = "";
 bool refresh = true;
 dynamic uid = "anirudh@rakuten.com";
 dynamic uname = "Anirudh G";
@@ -32,10 +35,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      builder: (BuildContext context) =>  MaterialApp(
+      builder: (BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: LoginScreen(),
+        home: Splash(),
       ),
       designSize: const Size(375, 812),
     );

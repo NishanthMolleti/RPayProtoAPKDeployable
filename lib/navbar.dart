@@ -1,7 +1,9 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test/SearchPage.dart';
 import 'package:test/main.dart';
+import 'package:test/qrcodepage.dart';
 
 import 'loginScreen.dart';
 
@@ -37,7 +39,11 @@ class Navbar extends StatelessWidget {
                     children: <Widget>[
                       TextButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                           Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const qrcodepage()),
+                      );
                         },
                         style: TextButton.styleFrom(primary: Colors.black),
                         child: const Icon(Icons.notifications_none_outlined),
@@ -49,7 +55,15 @@ class Navbar extends StatelessWidget {
             drawDivider(),
             account_Balance_Widget("Installments", "\$0"),
             drawDivider(),
-            NamedTextButton("Send Money"),
+            GestureDetector(
+              onTap: (() {
+                Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SearchPage()),
+                      );
+              }),
+              child: NamedTextButton("Send Money")),
             drawDivider(),
             account_Balance_Widget("Cash Back", "\$0"),
             drawDivider(),
