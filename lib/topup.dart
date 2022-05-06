@@ -1,40 +1,89 @@
 import 'package:flutter/material.dart';
-import 'package:temp/topUpPage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:temp/topUpPage.dart';
 
 Widget topUp(context) => Padding(
-      padding:  EdgeInsets.symmetric(vertical:10.0.h,horizontal: 10.0.w),
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-         SizedBox(
-          height: 25.h,
+        const SizedBox(
+          height: 20,
         ),
         Container(
-          child:  Text(
+          child: const Text(
             "Top up your card",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-         SizedBox(
-          height: 40.h,
+        const SizedBox(
+          height: 40,
         ),
         Container(
           child: Row(
-            children:  [
+            children: [
               Icon(
                 Icons.payment,
                 color: Colors.black,
-                size: 24.0.sp,
-                semanticLabel: 'Text to announce in accessibility modes',
+                size: 24.0,
               ),
               SizedBox(
-                width: 25.w,
+                width: 25,
               ),
               Expanded(
                   child: Text(
                 "Credit/Debit  card",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18.sp, color: Colors.black),
+                style: TextStyle(fontSize: 18, color: Colors.black),
+              )),
+            ],
+          ),
+        ),
+        const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const TopupScreen()));
+          },
+          child: Container(
+            child: Row(
+              children: [
+                Icon(
+                  Icons.house,
+                  color: Colors.black,
+                  size: 24.0,
+                ),
+                SizedBox(
+                  width: 25,
+                ),
+                Expanded(
+                  child: Text(
+                    "Bank",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
+        Container(
+          child: Row(
+            children: [
+              Icon(
+                Icons.paypal,
+                color: Colors.black,
+                size: 24.0,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+              SizedBox(
+                width: 25,
+              ),
+              Expanded(
+                  child: Text(
+                "PayPal",
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 18, color: Colors.black),
               )),
             ],
           ),
@@ -43,86 +92,32 @@ Widget topUp(context) => Padding(
         Container(
           child: Row(
             children: [
-               Icon(
-                Icons.house,
-                color: Colors.black,
-                size: 24.0.sp,
-                semanticLabel: 'Text to announce in accessibility modes',
-              ),
-               SizedBox(
-                width: 25.w,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const TopupScreen()),
-                  );
-                },
-                child:  Expanded(
-                  child: Text(
-                    "Bank",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 18.sp, color: Colors.black),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        Container(
-          child: Row(
-            children:  [
-              Icon(
-                Icons.paypal,
-                color: Colors.black,
-                size: 24.0.sp,
-                semanticLabel: 'Text to announce in accessibility modes',
-              ),
-              SizedBox(
-                width: 25.w,
-              ),
-              Expanded(
-                  child: Text(
-                "PayPal",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18.sp, color: Colors.black),
-              )),
-            ],
-          ),
-        ),
-        const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-        Container(
-          child: Row(
-            children:  [
               Icon(
                 Icons.add,
                 color: Colors.black,
-                size: 24.0.sp,
+                size: 24.0,
                 semanticLabel: 'Text to announce in accessibility modes',
               ),
               SizedBox(
-                width: 25.w,
+                width: 25,
               ),
               Expanded(
                   child: Text(
                 "Cash Back",
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 18.sp, color: Colors.black),
+                style: TextStyle(fontSize: 18, color: Colors.black),
               )),
               Text(
                 "\$87.35",
                 textAlign: TextAlign.right,
-                style: TextStyle(color: Colors.blue, fontSize: 18.sp),
+                style: TextStyle(color: Colors.blue, fontSize: 18),
               )
             ],
           ),
         ),
         const Divider(color: Colors.grey, thickness: 0.3, endIndent: 0),
-         SizedBox(
-          height: 100.h,
+        SizedBox(
+          height: 100,
         ),
       ]),
     );

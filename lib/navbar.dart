@@ -38,13 +38,7 @@ class Navbar extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       TextButton(
-                        onPressed: () {
-                           Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const qrcodepage()),
-                      );
-                        },
+                        onPressed: () {},
                         style: TextButton.styleFrom(primary: Colors.black),
                         child: const Icon(Icons.notifications_none_outlined),
                       ),
@@ -56,18 +50,26 @@ class Navbar extends StatelessWidget {
             account_Balance_Widget("Installments", "\$0"),
             drawDivider(),
             GestureDetector(
-              onTap: (() {
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SearchPage()),
-                      );
-              }),
-              child: NamedTextButton("Send Money")),
+                onTap: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SearchPage()),
+                  );
+                }),
+                child: NamedTextButton("Send Money")),
             drawDivider(),
             account_Balance_Widget("Cash Back", "\$0"),
             drawDivider(),
             account_Balance_Widget("Rakuten Points", "0P"),
+            drawDivider(),
+            GestureDetector(
+                onTap: (() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const qrcodepage()),
+                  );
+                }),
+                child: NamedTextButton("My QR Code")),
             drawDivider(),
             Expanded(
               child: Column(
@@ -125,6 +127,7 @@ Widget account_Balance_Widget(String acc_type, String balance) {
 
 Widget NamedTextButton(String text) {
   return Container(
+    color: Colors.white.withOpacity(0.01),
     width: double.infinity,
     padding: EdgeInsets.only(top: 12.h, left: 16.w, bottom: 12.h),
     child: Row(

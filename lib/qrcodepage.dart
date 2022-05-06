@@ -10,31 +10,36 @@ class qrcodepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Navbar(),
+      // drawer: Navbar(),
+
       appBar: AppBar(
-        centerTitle: true,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
+        leading: const BackButton(
+          color: Colors.black,
         ),
-        actions: [
-          TextButton(
-            child: Text("Cancel"),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
+        elevation: 0,
+        centerTitle: true,
+        // leading: Builder(
+        //   builder: (BuildContext context) {
+        //     return IconButton(
+        //       icon: const Icon(
+        //         Icons.menu,
+        //         color: Colors.black,
+        //       ),
+        //       onPressed: () {
+        //         Scaffold.of(context).openDrawer();
+        //       },
+        //       tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+        //     );
+        //   },
+        // ),
+        // actions: [
+        //   TextButton(
+        //     child: Text("Cancel"),
+        //     onPressed: () {
+        //       Navigator.pop(context);
+        //     },
+        //   ),
+        // ],
         backgroundColor: Colors.white,
         title: Image.asset(
           "assets/images/RakutenPay.jpg",
